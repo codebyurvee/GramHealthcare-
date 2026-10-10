@@ -1,0 +1,16 @@
+name,age,gender,phone,preferred_language
+Patient Alpha,28,Female,0000000000,pa
+Patient Beta,45,Male,0000000000,hi
+Patient Gamma,62,Male,0000000000,pa
+Patient Delta,19,Female,0000000000,hi
+Patient Epsilon,34,Female,0000000000,pa
+Patient Zeta,51,Male,0000000000,hi
+Patient Eta,8,Male,0000000000,pa
+Patient Theta,73,Female,0000000000,hi
+Patient Iota,40,Male,0000000000,pa
+Patient Kappa,25,Female,0000000000,hi
+Patient Lambda,55,Male,0000000000,pa
+Patient Mu,31,Female,0000000000,hi
+Patient Nu,67,Male,0000000000,pa
+Patient Xi,22,Female,0000000000,hi
+Patient Omicron,48,Male,0000000000,pa
