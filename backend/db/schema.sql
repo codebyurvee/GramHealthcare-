@@ -13,7 +13,7 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- 2. Facilities Table (Added 'district' column to match CSV)
+-- 2. Facilities Table 
 CREATE TABLE facilities (
     id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
     name VARCHAR(150) NOT NULL,
