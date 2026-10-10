@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Facilities Directory - GramHealthcare">
+    <title>Facilities - GramHealthcare</title>
+    <link rel="manifest" href="/public/manifest.json">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar">
+            <div class="container">
+                <h1 class="logo">GramHealthcare</h1>
+                <ul class="nav-links">
+                    <li><a href="/pages/index.html">Home</a></li>
+                    <li><a href="/pages/login.html">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="facilities-container">
+            <div class="container">
+                <h1>Healthcare Facilities Directory</h1>
+                <p class="subtitle">Find and explore verified healthcare facilities in your area</p>
+
+                <section class="search-section">
+                    <div class="search-bar">
+                        <input type="text" id="facilitySearch" placeholder="Search by name, location..." class="search-input">
+                        <button id="searchBtn" class="btn btn-primary">Search</button>
+                    </div>
+
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label for="typeFilter">Facility Type</label>
+                            <select id="typeFilter">
+                                <option value="">All Types</option>
+                                <option value="primary">Primary Health Center</option>
+                                <option value="secondary">Secondary Health Center</option>
+                                <option value="tertiary">Tertiary Health Center</option>
+                                <option value="hospital">Hospital</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="locationFilter">Location</label>
+                            <select id="locationFilter">
+                                <option value="">All Locations</option>
+                                <!-- Locations will be populated dynamically -->
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="serviceFilter">Services</label>
+                            <select id="serviceFilter">
+                                <option value="">All Services</option>
+                                <option value="emergency">Emergency Services</option>
+                                <option value="surgery">Surgery</option>
+                                <option value="maternity">Maternity</option>
+                                <option value="pediatrics">Pediatrics</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="orthopedics">Orthopedics</option>
+                            </select>
+                        </div>
+
+                        <button id="clearFilters" class="btn btn-secondary">Clear Filters</button>
+                    </div>
+                </section>
+
+                <section class="results-section">
+                    <div class="results-header">
+                        <p id="resultsCount">Loading facilities...</p>
+                        <div class="sort-options">
+                            <select id="sortBy">
+                                <option value="relevance">Sort by Relevance</option>
+                                <option value="name">Sort by Name</option>
+                                <option value="distance">Sort by Distance</option>
+                                <option value="rating">Sort by Rating</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="facilitiesList" class="facilities-grid">
+                        <!-- Facilities will be loaded here -->
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Facility Detail Modal -->
+        <div id="facilityModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <div id="facilityDetail" class="facility-detail">
+                    <!-- Facility details will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 GramHealthcare. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="/assets/js/facilities.js"></script>
+</body>
+</html>

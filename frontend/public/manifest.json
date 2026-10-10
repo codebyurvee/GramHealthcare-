@@ -1,0 +1,22 @@
+{
+  "name": "GramHealthcare",
+  "short_name": "GramHealthcare",
+  "description": "A digital healthcare platform connecting rural patients, community health workers, and facilities through coordinated referrals, verified facility information, and offline-first tracking",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1976d2",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

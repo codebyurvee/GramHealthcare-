@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Dashboard - GramHealthcare">
+    <title>Admin Dashboard - GramHealthcare</title>
+    <link rel="manifest" href="/public/manifest.json">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+    <div id="app">
+        <nav class="dashboard-navbar">
+            <div class="container">
+                <h1 class="logo">GramHealthcare</h1>
+                <div class="user-menu">
+                    <span id="adminName">Admin</span>
+                    <a href="/pages/login.html" class="btn btn-small">Logout</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="dashboard-container">
+            <aside class="sidebar">
+                <ul class="sidebar-menu">
+                    <li><a href="#overview" class="active">Overview</a></li>
+                    <li><a href="#users">User Management</a></li>
+                    <li><a href="#facilities">Facilities Management</a></li>
+                    <li><a href="#referrals">Referral System</a></li>
+                    <li><a href="#analytics">Analytics</a></li>
+                    <li><a href="#audit-logs">Audit Logs</a></li>
+                    <li><a href="#system-settings">System Settings</a></li>
+                </ul>
+            </aside>
+
+            <main class="dashboard-content">
+                <section id="overview" class="dashboard-section">
+                    <h2>System Overview</h2>
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3>Total Users</h3>
+                            <p class="card-stat" id="totalUsers">0</p>
+                        </div>
+                        <div class="card">
+                            <h3>Total Facilities</h3>
+                            <p class="card-stat" id="totalFacilities">0</p>
+                        </div>
+                        <div class="card">
+                            <h3>Active Referrals</h3>
+                            <p class="card-stat" id="activeReferrals">0</p>
+                        </div>
+                        <div class="card">
+                            <h3>System Health</h3>
+                            <p class="card-stat" id="systemHealth">Good</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="users" class="dashboard-section hidden">
+                    <h2>User Management</h2>
+                    <button class="btn btn-primary">Add New User</button>
+                    <div class="filters">
+                        <input type="search" id="userSearch" placeholder="Search users...">
+                        <select id="roleFilter">
+                            <option value="">All Roles</option>
+                            <option value="patient">Patient</option>
+                            <option value="worker">Health Worker</option>
+                            <option value="facility">Facility Admin</option>
+                            <option value="admin">System Admin</option>
+                        </select>
+                    </div>
+                    <div id="usersList" class="list-container">
+                        <!-- Users will be loaded here -->
+                    </div>
+                </section>
+
+                <section id="facilities" class="dashboard-section hidden">
+                    <h2>Facilities Management</h2>
+                    <button class="btn btn-primary">Add New Facility</button>
+                    <div class="filters">
+                        <input type="search" id="facilitySearch" placeholder="Search facilities...">
+                        <select id="facilityTypeFilter">
+                            <option value="">All Types</option>
+                            <option value="primary">Primary Health Center</option>
+                            <option value="secondary">Secondary Health Center</option>
+                            <option value="tertiary">Tertiary Health Center</option>
+                            <option value="hospital">Hospital</option>
+                        </select>
+                    </div>
+                    <div id="facilitiesList" class="list-container">
+                        <!-- Facilities will be loaded here -->
+                    </div>
+                </section>
+
+                <section id="referrals" class="dashboard-section hidden">
+                    <h2>Referral System</h2>
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="all">All Referrals</button>
+                        <button class="tab-btn" data-tab="pending">Pending</button>
+                        <button class="tab-btn" data-tab="completed">Completed</button>
+                        <button class="tab-btn" data-tab="rejected">Rejected</button>
+                    </div>
+                    <div id="referralsList" class="list-container">
+                        <!-- Referrals will be loaded here -->
+                    </div>
+                </section>
+
+                <section id="analytics" class="dashboard-section hidden">
+                    <h2>Analytics & Reports</h2>
+                    <div class="analytics-filters">
+                        <input type="date" id="analyticsStartDate" placeholder="Start Date">
+                        <input type="date" id="analyticsEndDate" placeholder="End Date">
+                        <button class="btn btn-primary">Generate Report</button>
+                    </div>
+                    <div id="analyticsContainer" class="analytics-container">
+                        <div id="userStats" class="analytics-card">
+                            <h3>User Statistics</h3>
+                            <div id="userStatsChart"></div>
+                        </div>
+                        <div id="referralStats" class="analytics-card">
+                            <h3>Referral Statistics</h3>
+                            <div id="referralStatsChart"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="audit-logs" class="dashboard-section hidden">
+                    <h2>Audit Logs</h2>
+                    <div class="filters">
+                        <input type="search" id="auditSearch" placeholder="Search logs...">
+                        <select id="actionFilter">
+                            <option value="">All Actions</option>
+                            <option value="create">Create</option>
+                            <option value="update">Update</option>
+                            <option value="delete">Delete</option>
+                            <option value="login">Login</option>
+                        </select>
+                    </div>
+                    <div id="auditLogsList" class="list-container">
+                        <!-- Audit logs will be loaded here -->
+                    </div>
+                </section>
+
+                <section id="system-settings" class="dashboard-section hidden">
+                    <h2>System Settings</h2>
+                    <form id="systemSettingsForm" class="settings-form">
+                        <h3>General Settings</h3>
+                        <div class="form-group">
+                            <label for="platformName">Platform Name</label>
+                            <input type="text" id="platformName" name="platformName" value="GramHealthcare" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="supportEmail">Support Email</label>
+                            <input type="email" id="supportEmail" name="supportEmail" required>
+                        </div>
+
+                        <h3>Security Settings</h3>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="twoFactor" name="twoFactor">
+                                Enable Two-Factor Authentication
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="passwordExpiry" name="passwordExpiry">
+                                Enable Password Expiry
+                            </label>
+                        </div>
+
+                        <h3>Offline Settings</h3>
+                        <div class="form-group">
+                            <label for="offlineCacheSize">Offline Cache Size (MB)</label>
+                            <input type="number" id="offlineCacheSize" name="offlineCacheSize" value="100" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Save Settings</button>
+                    </form>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="/assets/js/dashboard.js"></script>
+    <script src="/assets/js/admin-dashboard.js"></script>
+</body>
+</html>
