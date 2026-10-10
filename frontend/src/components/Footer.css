@@ -1,0 +1,127 @@
+.footer-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(250, 248, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.footer-nav--public    { box-shadow: 0 -2px 10px rgba(0,0,0,0.04); }
+.footer-nav--dashboard { box-shadow: 0 1px 8px rgba(0,0,0,0.04); }
+
+.footer-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 0.25rem;
+}
+
+.footer-nav--public    .footer-tabs { height: 4rem; }
+.footer-nav--dashboard .footer-tabs { height: 5rem; }
+
+.footer-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.125rem;
+  flex: 1;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.25rem 0;
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: color 0.15s;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.footer-tab:hover { color: var(--on-surface); }
+
+.footer-tab .material-symbols-outlined { font-size: 24px; }
+
+/* Active state */
+.footer-tab--active {
+  color: var(--primary);
+  font-weight: 700;
+}
+.footer-tab--active .material-symbols-outlined {
+  font-variation-settings: 'FILL' 1;
+}
+
+/* Emergency tab — always red */
+.footer-tab--emergency,
+.footer-tab--emergency .material-symbols-outlined {
+  color: var(--error) !important;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE MEDIA QUERIES
+   ══════════════════════════════════════════════ */
+
+/* Tablet (768px - 1023px) */
+@media (max-width: 1023px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Mobile Landscape (480px - 767px) */
+@media (max-width: 767px) {
+  .footer {
+    padding: 1.5rem 0.75rem;
+  }
+  
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .footer-section h3 {
+    font-size: 1.125rem;
+  }
+  
+  .footer-section p,
+  .footer-section ul li {
+    font-size: 0.875rem;
+  }
+  
+  .footer-bottom {
+    font-size: 0.875rem;
+  }
+}
+
+/* Mobile Portrait (320px - 479px) */
+@media (max-width: 479px) {
+  .footer {
+    padding: 1.25rem 0.5rem;
+  }
+  
+  .footer-container {
+    gap: 1rem;
+  }
+  
+  .footer-section h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .footer-section p,
+  .footer-section ul li {
+    font-size: 0.8125rem;
+  }
+  
+  .footer-bottom {
+    font-size: 0.8125rem;
+    margin-top: 1.5rem;
+    padding-top: 0.875rem;
+  }
+}

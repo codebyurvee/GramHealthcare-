@@ -1,0 +1,83 @@
+.network-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Dot container */
+.network-dot {
+  position: relative;
+  display: inline-flex;
+  width: 0.5rem;
+  height: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Animated ping ring (online only) */
+.network-dot-ping {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  animation: net-ping 1.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Solid core dot */
+.network-dot-core {
+  position: relative;
+  display: inline-flex;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+}
+
+/* Online colours */
+.network-badge--online .network-dot-ping { background: var(--secondary); opacity: 0.75; }
+.network-badge--online .network-dot-core { background: var(--secondary); }
+.network-badge--online .network-label    { color: var(--on-surface-variant); }
+
+/* Offline colours */
+.network-badge--offline .network-dot-core { background: var(--error); }
+.network-badge--offline .network-label    { color: var(--error); }
+
+@keyframes net-ping {
+  0%   { transform: scale(1);   opacity: 0.75; }
+  75%  { transform: scale(2.2); opacity: 0; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE MEDIA QUERIES
+   ══════════════════════════════════════════════ */
+
+/* Mobile Landscape (480px - 767px) */
+@media (max-width: 767px) {
+  .network-badge {
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.375rem 0.625rem;
+    font-size: 0.75rem;
+    gap: 0.375rem;
+  }
+  
+  .network-badge i {
+    font-size: 0.875rem;
+  }
+}
+
+/* Mobile Portrait (320px - 479px) */
+@media (max-width: 479px) {
+  .network-badge {
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+    gap: 0.25rem;
+  }
+  
+  .network-badge i {
+    font-size: 0.75rem;
+  }
+}
