@@ -1,22 +1,38 @@
 {
-  "name": "GramHealthcare",
-  "short_name": "GramHealthcare",
-  "description": "A digital healthcare platform connecting rural patients, community health workers, and facilities through coordinated referrals, verified facility information, and offline-first tracking",
+  "name": "GramHealth Connect",
+  "short_name": "GramHealth",
+  "description": "Rural healthcare coordination, verified facility directory, and offline-first referral platform",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#1976d2",
+  "theme_color": "#10b981",
   "orientation": "portrait-primary",
+  "categories": ["health", "medical", "lifestyle"],
   "icons": [
     {
-      "src": "/assets/icons/icon-192x192.png",
+      "src": "/icons/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "/assets/icons/icon-512x512.png",
+      "src": "/icons/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
     }
   ]
 }

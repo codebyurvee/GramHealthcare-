@@ -64,7 +64,15 @@ export default function Navbar({
               <span className="navbar-brand-subtitle">{subtitle}</span>
             </div>
           </Link>
-          <div className="navbar-actions">
+          <div className="navbar-actions" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <Link to="/facilities" style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'inherit', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+              <span className="material-symbols-outlined" style={{ fontSize: '18px', color: '#0d9488' }}>map</span>
+              <span>Facilities</span>
+            </Link>
+            <Link to="/analytics" style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'inherit', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+              <span className="material-symbols-outlined" style={{ fontSize: '18px', color: '#0d9488' }}>analytics</span>
+              <span>Analytics</span>
+            </Link>
             {user ? (
               <button className="navbar-avatar" onClick={handleLogout} title="Logout">
                 <span className="material-symbols-outlined">person</span>

@@ -1,0 +1,286 @@
+/* FacilityMap.css — Responsive Leaflet Map Styling */
+
+.facility-map-wrapper {
+  position: relative;
+  width: 100%;
+  height: 540px;
+  min-height: 400px;
+  background-color: #f8fafc;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+
+.facility-map-container {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+/* Map Floating Controls */
+.map-floating-controls {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.map-control-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  color: #1e293b;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.map-control-btn:hover {
+  background: #ffffff;
+  color: #0d9488;
+  border-color: #0d9488;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.map-control-btn .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* Custom Marker Pin */
+.custom-map-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: -2px 3px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.custom-map-pin:hover,
+.custom-map-pin.pin-selected {
+  transform: rotate(-45deg) scale(1.22);
+  box-shadow: -3px 5px 10px rgba(0, 0, 0, 0.4);
+  z-index: 1000 !important;
+}
+
+.custom-map-pin-inner {
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.custom-map-pin-inner .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* Marker color codes */
+.pin-mc { background-color: #2563eb; } /* Medical College: Royal Blue */
+.pin-dh { background-color: #7c3aed; } /* District Hospital: Purple */
+.pin-chc { background-color: #0d9488; } /* CHC: Teal */
+.pin-phc { background-color: #16a34a; } /* PHC: Green */
+
+/* Custom Leaflet Popup */
+.leaflet-popup-content-wrapper {
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.leaflet-popup-content {
+  margin: 0;
+  line-height: 1.4;
+  font-family: inherit;
+}
+
+.facility-popup-card {
+  padding: 16px;
+  min-width: 260px;
+  max-width: 320px;
+}
+
+.facility-popup-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.facility-popup-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.facility-popup-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.facility-popup-badge--mc { background: #dbeafe; color: #1e40af; }
+.facility-popup-badge--dh { background: #ede9fe; color: #6b21a8; }
+.facility-popup-badge--chc { background: #ccfbf1; color: #115e59; }
+.facility-popup-badge--phc { background: #dcfce7; color: #166534; }
+
+.facility-popup-district {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.facility-popup-address {
+  font-size: 0.8125rem;
+  color: #475569;
+  margin-bottom: 12px;
+}
+
+.facility-popup-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 12px;
+  font-size: 0.75rem;
+}
+
+.facility-popup-meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.facility-popup-meta-item span {
+  color: #64748b;
+  font-size: 0.6875rem;
+}
+
+.facility-popup-meta-item strong {
+  color: #0f172a;
+}
+
+.facility-popup-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.facility-popup-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.facility-popup-btn--select {
+  background: #0d9488;
+  color: #ffffff;
+}
+
+.facility-popup-btn--select:hover {
+  background: #0f766e;
+}
+
+.facility-popup-btn--call {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.facility-popup-btn--call:hover {
+  background: #e2e8f0;
+}
+
+/* Map Status / Loading / Empty / Error Overlay */
+.map-overlay-message {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(4px);
+  z-index: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.map-overlay-message .material-symbols-outlined {
+  font-size: 40px;
+  color: #0d9488;
+  margin-bottom: 12px;
+}
+
+.map-overlay-message h4 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.map-overlay-message p {
+  font-size: 0.875rem;
+  color: #64748b;
+  max-width: 320px;
+}
+
+.map-offline-banner {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  z-index: 500;
+  background: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(6px);
+  color: #f8fafc;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .facility-map-wrapper {
+    height: 380px;
+  }
+}

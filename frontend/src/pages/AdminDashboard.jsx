@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Navbar from '../components/Navbar.jsx'
 import Footer from '../components/Footer.jsx'
 import { useAuth } from '../context/AuthContext.jsx'
+import AnalyticsSection from '../components/AnalyticsSection.jsx'
 import './AdminDashboard.css'
 
 const SECTIONS = ['overview', 'users', 'facilities', 'referrals', 'analytics', 'audit', 'settings']
@@ -170,22 +171,8 @@ export default function AdminDashboard() {
             {/* ── Analytics ── */}
             {activeSection === 'analytics' && (
               <section>
-                <h2 className="ad-section-title">Analytics &amp; Reports</h2>
-                <div className="ad-analytics-filters">
-                  <input type="date" className="ad-date-input" />
-                  <input type="date" className="ad-date-input" />
-                  <button className="gh-btn-primary">Generate Report</button>
-                </div>
-                <div className="ad-analytics-grid">
-                  <div className="ad-analytics-card">
-                    <h3>User Statistics</h3>
-                    <div className="ad-chart-placeholder"><span className="material-symbols-outlined">bar_chart</span></div>
-                  </div>
-                  <div className="ad-analytics-card">
-                    <h3>Referral Statistics</h3>
-                    <div className="ad-chart-placeholder"><span className="material-symbols-outlined">show_chart</span></div>
-                  </div>
-                </div>
+                <h2 className="ad-section-title">Analytics &amp; Operational Reports</h2>
+                <AnalyticsSection />
               </section>
             )}
 
